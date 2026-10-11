@@ -4,6 +4,14 @@ Strips container metadata (global tags + chapters) from every video file
 in the current folder, without touching the media streams and without
 changing the files' filesystem metadata (timestamps, attributes).
 
+## Install
+
+Put `strip-video-meta.ps1` and `strip-video-meta.cmd` side by side in any
+folder on your PATH (the .cmd resolves the .ps1 relative to its own
+location). Easiest: add this project folder to your PATH. Alternative:
+keep a two-line shim .cmd on your PATH that runs the .ps1 by absolute
+path.
+
 ## Usage
 
 1. Make sure `ffmpeg` is on your PATH.
@@ -76,7 +84,7 @@ Not preserved (deliberately):
 | File | Role |
 |---|---|
 | `strip-video-meta.ps1` | The actual script (PowerShell) |
-| `strip-video-meta.cmd` | Local shim — runs the script on the current folder |
+| `strip-video-meta.cmd` | PATH shim — runs the script on the current folder |
 
 ## Implementation notes
 
@@ -127,3 +135,7 @@ it byte-for-byte identical (verified by hash).
   writes).
 - 2026-10-11 — Added `-DryRun`: reports which files would be stripped
   and which are already clean, without writing anything.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
