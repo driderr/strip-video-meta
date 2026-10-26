@@ -12,6 +12,11 @@ location). Easiest: add this project folder to your PATH. Alternative:
 keep a two-line shim .cmd on your PATH that runs the .ps1 by absolute
 path.
 
+The .cmd stream-copies (`-c copy`) the common video extensions in the current folder
+and replaces each file in place through a temporary file on the same volume plus
+`move /Y`. On NTFS that rename is O(1) — no data copy, and no leftover temporary
+file.
+
 ## Usage
 
 1. Make sure `ffmpeg` is on your PATH.
