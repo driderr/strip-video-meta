@@ -185,14 +185,14 @@ it byte-for-byte identical (verified by hash).
   metadata are skipped without being rewritten and reported as
   `skipped` (re-running over an already-clean folder now costs zero
   writes).
-- 2026-10-11 — Added `-DryRun`: reports which files would be stripped
+- 2026-10-11 — Added `-DryRun`: reports which files would be stripped and
+  which are already clean, without writing anything.
 - 2026-11-10 — In-band metadata added, after auditing real outputs showed what
   the original version left behind: H.264 SEI units (the `kling-ai` / `x264 -
   core` markers), per-stream tags, and dropped tracks. Stream selection is now
   explicit, every stream type's tags are wiped, three verification gates guard
   every rewrite, and `-Audit` / `-NoVerify` exist. HEVC SEI is reported, not
   removed — measured no-op in length-prefixed containers.
-  and which are already clean, without writing anything.
 
 ## License
 
