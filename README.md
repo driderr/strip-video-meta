@@ -132,11 +132,6 @@ Not preserved (deliberately):
   which the original usually already shares)
 
 ## Files
-- `metaudit.py` — audit harness: prints the full metadata inventory of any
-  video file (container tags, per-stream tags, chapters, attachments, in-band
-  SEI / user_data units with their decoded text payloads, producer strings).
-  Run it before and after; the diff is what the tool removed. It is also the
-  acceptance test for the rules in this README.
 
 | File | Role |
 |---|---|
@@ -191,8 +186,8 @@ it byte-for-byte identical (verified by hash).
   `skipped` (re-running over an already-clean folder now costs zero
   writes).
 - 2026-10-11 — Added `-DryRun`: reports which files would be stripped
-- 2026-11-10 — In-band metadata added, after `metaudit.py` showed what the
-  original version left behind: H.264 SEI units (the `kling-ai` / `x264 -
+- 2026-11-10 — In-band metadata added, after auditing real outputs showed what
+  the original version left behind: H.264 SEI units (the `kling-ai` / `x264 -
   core` markers), per-stream tags, and dropped tracks. Stream selection is now
   explicit, every stream type's tags are wiped, three verification gates guard
   every rewrite, and `-Audit` / `-NoVerify` exist. HEVC SEI is reported, not
